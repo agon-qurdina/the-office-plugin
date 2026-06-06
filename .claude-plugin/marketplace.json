@@ -1,0 +1,17 @@
+{
+  "name": "the-office-plugins",
+  "metadata": {
+    "description": "The Office — sales CLI plugins for Claude Code"
+  },
+  "owner": {
+    "name": "The Office",
+    "email": "hello@the-office.ai"
+  },
+  "plugins": [
+    {
+      "name": "the-office",
+      "source": "./",
+      "description": "World's Best Sales CLI — LinkedIn/HubSpot prospecting, lead/account search, campaigns, and outreach, designed for AI agents."
+    }
+  ]
+}

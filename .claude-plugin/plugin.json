@@ -1,0 +1,11 @@
+{
+  "name": "the-office",
+  "description": "World's Best Sales CLI — LinkedIn/HubSpot prospecting, campaigns, and outreach for AI agents.",
+  "version": "1.0.3",
+  "author": {
+    "name": "The Office",
+    "email": "hello@the-office.ai"
+  },
+  "homepage": "https://www.the-office.ai",
+  "repository": "https://github.com/FestimTheA/the-office-cli"
+}

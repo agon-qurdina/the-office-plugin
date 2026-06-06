@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Install-free launcher for the-office CLI.
+#
+# This wrapper is placed on PATH inside Claude Code's Bash tool whenever the
+# "the-office" plugin is enabled. It runs the CLI without requiring the user to
+# separately `pipx install the-office-cli` — uvx/pipx fetch and cache the
+# package on first use, then run its `the-office` entry point.
+set -euo pipefail
+
+if command -v uvx >/dev/null 2>&1; then
+  exec uvx --from the-office-cli the-office "$@"
+elif command -v pipx >/dev/null 2>&1; then
+  exec pipx run --spec the-office-cli the-office "$@"
+else
+  echo "the-office: needs 'uv' (recommended) or 'pipx' installed to run." >&2
+  echo "  Install uv:   https://docs.astral.sh/uv/getting-started/installation/" >&2
+  echo "  Install pipx: https://pipx.pypa.io/stable/installation/" >&2
+  exit 127
+fi
