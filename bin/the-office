@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # Install-free launcher for the-office CLI.
 #
-# This wrapper is placed on PATH inside Claude Code's Bash tool whenever the
-# "the-office" plugin is enabled. It runs the CLI without requiring the user to
-# separately `pipx install the-office-cli` — uvx/pipx fetch and cache the
-# package on first use, then run its `the-office` entry point.
+# Claude Code does not add a plugin's bin/ to $PATH, so the skill invokes this
+# wrapper by absolute path via "${CLAUDE_PLUGIN_ROOT}/bin/the-office". It runs
+# the CLI without requiring the user to separately `pipx install the-office-cli`
+# — uvx/pipx fetch and cache the package on first use, then run its `the-office`
+# entry point.
 set -euo pipefail
 
 if command -v uvx >/dev/null 2>&1; then
