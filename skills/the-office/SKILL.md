@@ -24,8 +24,13 @@ Always invoke the bundled wrapper by its absolute path — it is **not** on
 ```
 
 The wrapper runs the published `the-office-cli` via `uvx` (or `pipx`),
-fetching and caching it on first use. If neither is installed it prints install
-instructions and exits 127 — surface that to the user.
+fetching and caching it on first use.
+
+**If a command exits 127** with a "needs 'uv' (recommended) or 'pipx'" message,
+the runtime isn't installed. Do **not** retry the command. Tell the user to
+install `uv` once — `brew install uv` (macOS) or
+`curl -LsSf https://astral.sh/uv/install.sh | sh` — and stop until they confirm
+it's installed. Everything else needs `uv`/`pipx` present.
 
 ## Workflow: discover, preview, run
 
