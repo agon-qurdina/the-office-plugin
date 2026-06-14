@@ -3,8 +3,8 @@
 The [Claude Code](https://code.claude.com/docs) plugin for **The Office CLI** — the
 World's Best Sales CLI. Installing this plugin teaches your Claude Code agent
 *when* to reach for the CLI (LinkedIn/HubSpot prospecting, lead and account
-search, campaigns, outreach, dashboards) and makes the `the-office` command
-available to it — no separate install step.
+search, campaigns, outreach, dashboards) and lets the agent run the CLI on
+demand — no separate install step.
 
 > The CLI itself lives in a separate repo:
 > [`the-office-cli`](https://github.com/FestimTheA/the-office-cli) (published to
@@ -51,16 +51,19 @@ Once installed and enabled, the plugin does two things:
 
 1. **Adds a skill** that tells the agent what The Office CLI is and when to use
    it. The skill is what triggers the agent to reach for the tool.
-2. **Puts `the-office` on PATH** inside Claude Code's Bash tool (via the `bin/`
-   launcher), so the agent can run it directly.
+2. **Bundles a launcher** (`bin/the-office`) that the skill invokes by its
+   plugin-relative path (`${CLAUDE_PLUGIN_ROOT}/bin/the-office`), so the agent
+   can run the CLI without a separate install. Claude Code does not add the
+   plugin's `bin/` to your shell `PATH`; the skill addresses the launcher
+   directly.
 
 Nothing runs automatically on install. When you ask the agent to do sales work,
-the skill triggers and the agent invokes `the-office` itself. The first
+the skill triggers and the agent runs the bundled launcher itself. The first
 invocation pays a one-time fetch/cache cost via `uvx`; subsequent calls are fast.
 
-> Note: the `the-office` command provided by this plugin is only on PATH **inside
-> Claude Code**. To use the CLI in your normal terminal, install it directly:
-> `pipx install the-office-cli` (or `uvx the-office-cli`).
+> Note: this launcher is only used by the agent inside Claude Code. To use the
+> CLI in your normal terminal, install it directly: `pipx install the-office-cli`
+> (or `uvx the-office-cli`).
 
 ## Run it
 
