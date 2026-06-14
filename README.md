@@ -6,9 +6,9 @@ World's Best Sales CLI. Installing this plugin teaches your Claude Code agent
 search, campaigns, outreach, dashboards) and lets the agent run the CLI on
 demand — no separate install step.
 
-> The CLI itself lives in a separate repo:
-> [`the-office-cli`](https://github.com/FestimTheA/the-office-cli) (published to
-> PyPI as `the-office-cli`). This repo only contains the Claude Code plugin.
+> The CLI itself is published to PyPI as
+> [`the-office-cli`](https://pypi.org/project/the-office-cli/). This repo only
+> contains the Claude Code plugin.
 
 ## Install
 
@@ -112,6 +112,6 @@ the-office-plugin/
 
 ## Links
 
-- The Office CLI: https://github.com/FestimTheA/the-office-cli
+- The Office CLI: https://pypi.org/project/the-office-cli/
 - Website: https://www.the-office.ai
 - Claude Code plugins: https://code.claude.com/docs/en/plugins
